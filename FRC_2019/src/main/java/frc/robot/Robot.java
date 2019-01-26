@@ -33,11 +33,13 @@ public class Robot extends IterativeRobot {
 
   @Override
   public void teleopPeriodic(){
+    //driving stuff
     spark1.set(joystick1.getY());
     spark2.set(joystick1.getY());
     spark3.set(joystick2.getY());
     spark4.set(joystick2.getY());
 
+    //gyroscope stuff
     /*double angle= gyro.getAngle();
     angle *=100;
     angle= Math.round(angle);
