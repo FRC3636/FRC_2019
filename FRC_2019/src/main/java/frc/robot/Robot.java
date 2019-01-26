@@ -18,15 +18,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Robot extends IterativeRobot {
-  private static final String kDefaultAuto = "Default";
-  private static final String kCustomAuto = "My Auto";
   private Spark spark1= new Spark(0);
   private Spark spark2= new Spark(1);
   private Spark spark3= new Spark(2);
   private Spark spark4= new Spark(3);
   private Joystick joystick1= new Joystick(0);
   private Joystick joystick2= new Joystick(1);
-  private AnalogGyro gyro = new AnalogGyro(0);
+  private AnalogGyro gyro = new AnalogGyro(1);
 
   @Override
   public void robotInit() {
@@ -39,5 +37,21 @@ public class Robot extends IterativeRobot {
     spark2.set(joystick1.getY());
     spark3.set(joystick2.getY());
     spark4.set(joystick2.getY());
+
+    /*double angle= gyro.getAngle();
+    angle *=100;
+    angle= Math.round(angle);
+    angle /= 100;
+    double oldangle=0;
+    if(angle!= oldangle){
+      System.out.println(angle);
+      oldangle=angle;*/
+    }
+    /*gyro.reset();
+    try{
+      Thread.sleep(500);
+    }catch(Exception e){
+      e.printStackTrace();
+    }*/
   }
 }
