@@ -18,13 +18,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Robot extends IterativeRobot {
-  private Spark spark1= new Spark(0);
-  private Spark spark2= new Spark(1);
-  private Spark spark3= new Spark(2);
-  private Spark spark4= new Spark(3);
-  private Joystick joystick1= new Joystick(0);
-  private Joystick joystick2= new Joystick(1);
-  private AnalogGyro gyro = new AnalogGyro(1);
+
+  private Spark myLeft = new Spark(1);
+  private Spark myRight = new Spark(2);
+  private DifferentialDrive myDrive = new DifferentialDrive(myLeft, myRight);
+  private Joystick leftJoystick = new Joystick(0);
+  private Joystick rightJoystick = new Joystick(1);
+  //private AnalogGyro gyro = new AnalogGyro(1);
 
   @Override
   public void robotInit() {
@@ -34,10 +34,9 @@ public class Robot extends IterativeRobot {
   @Override
   public void teleopPeriodic(){
     //driving stuff
-    spark1.set(joystick1.getY());
-    spark2.set(joystick1.getY());
-    spark3.set(joystick2.getY());
-    spark4.set(joystick2.getY());
+    myDrive.tankDrive(leftJoystick.getY(),  rightJoystick.getY());
+
+
 
     //gyroscope stuff
     /*double angle= gyro.getAngle();
