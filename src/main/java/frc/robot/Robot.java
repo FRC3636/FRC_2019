@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 public class Robot extends IterativeRobot{
-    private XboxController controller = new XboxController(0);
+    private XboxController controller = new XboxController(1);
 
 	private DigitalInput limitSwitch = new DigitalInput(6);
 	private final double[] setpointList = {64.0, 75.0, 98.5, 130.0, 140.0};
@@ -46,7 +46,7 @@ public class Robot extends IterativeRobot{
 		System.out.println((-armEncoder.get()/toAngle + offset) + " " + (pidObj.getSetpoint()));
 		//m_myRobot.tankDrive(-m_leftStick.getY(), -m_rightStick.getY());
 
-        m_myRobot.tankDrive(-controller.getY(GenericHID.Hand.kLeft), -controller.getY(GenericHID.Hand.kRight));
+        m_myRobot.arcadeDrive(-controller.getY(GenericHID.Hand.kLeft), -controller.getX(GenericHID.Hand.kRight));
 
         //liftMotor.set(1);//pulses per sec / pulses per revolution / 60
 		//System.out.println(armEncoder.getDistance());
