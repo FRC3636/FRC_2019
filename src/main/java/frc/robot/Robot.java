@@ -46,7 +46,7 @@ public class Robot extends IterativeRobot{
 		System.out.println((-armEncoder.get()/toAngle + offset) + " " + (pidObj.getSetpoint()));
 		//m_myRobot.tankDrive(-m_leftStick.getY(), -m_rightStick.getY());
 
-        m_myRobot.arcadeDrive(-controller.getY(GenericHID.Hand.kLeft), -controller.getX(GenericHID.Hand.kRight));
+        m_myRobot.arcadeDrive(-controller.getY(GenericHID.Hand.kLeft), controller.getX(GenericHID.Hand.kRight));
 
         //liftMotor.set(1);//pulses per sec / pulses per revolution / 60
 		//System.out.println(armEncoder.getDistance());
